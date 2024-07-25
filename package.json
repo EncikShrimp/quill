@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.4",
+    "@langchain/community": "^0.2.20",
+    "@langchain/openai": "^0.2.4",
     "@neondatabase/serverless": "^0.9.4",
     "@pinecone-database/pinecone": "^2.2.2",
     "@radix-ui/react-slot": "^1.1.0",
@@ -20,8 +22,10 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.32.0",
+    "langchain": "^0.2.10",
     "lucide-react": "^0.408.0",
     "next": "14.2.5",
+    "pdf-parse": "^1.1.1",
     "react": "^18.3.1",
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",

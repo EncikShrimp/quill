@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { loadUploadthingIntoPinecone } from "@/lib/db/pinecone";
 import { chats } from "@/lib/db/schema";
 // import { loadS3IntoPinecone } from "@/lib/pinecone";
 // import { getS3Url } from "@/lib/s3";
@@ -13,8 +14,10 @@ export async function POST(req: Request, res: Response) {
   }
   try {
     const body = await req.json();
-    const { file_key, file_name } = body;
-    console.log(file_key, file_name);
+    const { file_key, file_name, file_url } = body;
+
+    const pages = loadUploadthingIntoPinecone(file_key, file_url);
+
     // await loadS3IntoPinecone(file_key);
     // const chat_id = await db
     //   .insert(chats)
@@ -30,7 +33,7 @@ export async function POST(req: Request, res: Response) {
 
     return NextResponse.json(
       {
-        chat_id: body,
+        chat_id: pages,
       },
       { status: 200 }
     );

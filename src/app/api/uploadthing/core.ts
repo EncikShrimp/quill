@@ -8,7 +8,7 @@ const auth = (req: Request) => ({ id: process.env.UPLOADTHING_APP_ID }); // Fake
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
-  imageUploader: f({ image: { maxFileSize: "4MB" } })
+  imageUploader: f({ pdf: { maxFileSize: "16MB" } })
     .middleware(async ({ req }) => {
       const user = await auth(req);
 
